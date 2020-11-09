@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Flamenco&family=Montserrat&display=swap');
+body{
+  font-family: 'Montserrat', sans-serif;
+  background: #010c13;
+  color: white;
+}
+.navs{
+  background-color:#010c13;
+  border-bottom: 1px solid gray;
+}
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  color: white;
+  border-radius: 0;
+  background-color: #0b1a20;
+}
+.search-bar{
+  padding: 50px;
+  border-radius: 14px;
+  background: #0b1a20;
+  box-shadow:  5px 5px 6px #040a0d, 
+               -5px -5px 6px #122a33;
+}
+.results{
+ background: #010c13;
+ border:none;
+box-shadow:  5px 5px 10px #000508, 
+             -5px -5px 10px #02131e;
+  margin-top: -20px;
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-bottom: 6rem;
+   
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+.results{
+  margin-top: 20px;
+}
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
