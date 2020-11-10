@@ -43,6 +43,7 @@ body{
              -5px -5px 10px #02131e;
 padding: 20px;
 }
+
 @media (min-width: 768px) {
   .jumbotron {
     padding-bottom: 6rem;
