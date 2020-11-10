@@ -4,36 +4,49 @@ body{
   background: #010c13;
   color: white;
 }
+
 .navs{
   background-color:#010c13;
   border-bottom: 1px solid gray;
 }
 .jumbotron {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  margin-bottom: 0;
+  margin-top: -40px;
   color: white;
   border-radius: 0;
   background-color: #0b1a20;
 }
+
+.grid-div{
+    width: 75%;
+    grid-gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 220px);
+    margin: auto;
+}
+
 .search-bar{
   padding: 50px;
   border-radius: 14px;
   background: #0b1a20;
+  grid-gap: 20px;
   box-shadow:  5px 5px 6px #040a0d, 
                -5px -5px 6px #122a33;
 }
+.cards{
+   margin-top: -30px;
+}
 .results{
+   
  background: #010c13;
  border:none;
-box-shadow:  5px 5px 10px #000508, 
+ box-shadow:  5px 5px 10px #000508, 
              -5px -5px 10px #02131e;
-  margin-top: -20px;
-  padding: 20px;
+padding: 20px;
 }
 @media (min-width: 768px) {
   .jumbotron {
     padding-bottom: 6rem;
+    margin-top: 10px;
    
   }
 }

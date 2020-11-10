@@ -25,10 +25,12 @@
   </section>
 
   <div class="album py-5">
-    <div class="container results">
+    <div class="container">
       <div class="row">
+
         {% for video in videos %}
-        <div class="col-md-4">
+
+        <div class="col-md-4 cards ">
           <div class="card mb-4 results">
             <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ video.thumbnail }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"></img>
             <div class="card-body">
@@ -42,6 +44,8 @@
             </div>
           </div>
         </div>
+        {% empty %}
+        Seach anythng!
         {% endfor %}
       </div>
     </div>

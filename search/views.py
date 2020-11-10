@@ -4,7 +4,15 @@ import requests
 from isodate import parse_duration
 from .models import City
 from .forms import CityForm
+from django.core.exceptions import ObjectDoesNotExist
+from django.template import loader
+from django.http import HttpResponse
+from django.contrib import messages
 def index(request):
+    return render (request,'search/index.html')
+
+
+def youtube(request):
     videos = []
 
     if request.method == 'POST':
@@ -94,8 +102,7 @@ def weather(request):
 
     form = CityForm()
 
-    cities = City.objects.all()
-
+    cities = City.objects.all().order_by("-created")
     weather_data = []
 
     for city in cities:
@@ -123,3 +130,50 @@ def weather(request):
 def delete_city(request, city_name):
     City.objects.get(name=city_name).delete() 
     return redirect('weather')
+
+
+
+
+def corona(request):
+    data = []
+    url = "https://covid-193.p.rapidapi.com/statistics"
+    search = request.POST.get('search')
+    
+
+    if request.method =='POST':
+        querystring = {"country":search}
+    else:
+        querystring = {"country":"usa"}
+    print(search)
+    headers = {
+    
+        'x-rapidapi-key': "c84814a9d4msh0adba8fb76f6854p13b21ejsnef8f35136c16",
+        'x-rapidapi-host': "covid-193.p.rapidapi.com",
+
+        }
+    try:
+
+          
+        response = requests.request("GET", url, headers=headers, params=querystring).json()
+        d = response['response']
+        s = d[0]
+        print(response)
+    except:
+        messages.success(request, 'country name not found !')
+        return redirect("corona")
+    context = {
+        'country':s['country'],
+        'population':s['population'],
+        'all': s['cases']['total'],
+        'recovered': s['cases']['recovered'],
+        'deaths': s['deaths']['total'],
+        'new': s['cases']['new'],
+        'serioz': s['cases']['critical'],
+        'active': s['cases']['active'],
+        'tests': s['tests']['total'],
+
+    }
+    
+   
+
+    return render(request, 'search/corona.html', context)

@@ -1,0 +1,121 @@
+{% extends 'search/base.html' %}
+{% load static %}
+  {% block title %}
+    Corona Tracker
+  {% endblock %}
+{% block content %}
+{% include 'search/navbar.html' %}
+
+ <div class="text-center">
+        <h3 style="color: white;" class="p-3">Covid 19 cases in {{country}} <span style="color: red;" >Live</span> </h3>
+    </div>
+    <div class="container">
+    	   <h5><span class="counter">Total population: {{ population }} </span></h5>
+    	  <form method="POST">
+      <div class="input-group mb-3">
+          {% csrf_token %}
+          <input type="text" name="search" class="form-control" aria-label="Username" placeholder="enter correct country name">
+      </div>
+      <p>
+        <button type="submit" name="submit"  class="btn btn-outline-danger my-2">search <i class="fa fa-search"></i></button>
+    
+      </p>
+      </form>
+      {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" style="position: relative;margin-top: 30px;">
+
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <span style="background-color: purple;padding: 10px 20px;">Covid 19 case of {{country}} </span>
+        <section id="counter" class="section-padding">
+            <div class="overlay"></div>
+            <div class="container">
+              <div class="row justify-content-between">
+                <div class="col-lg-12 col-md-12 col-xs-12">
+                  <div class="mt-4 text-center row">
+                    <!-- Start counter -->
+                    <div class="bg-danger mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12">
+                      <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="icon-o"><i class="lni-users"></i></div>
+                        <div class="fact-count">
+                          <h2><span class="counter"> <b>{{ all }}</b> </span></h2>
+                          <h3>All cases</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End counter -->
+                    <!-- Start counter -->
+                    <div class="bg-success mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12">
+                        <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
+                          <div class="icon-o"><i class="lni-users"></i></div>
+                          <div class="fact-count">
+                            <h2><span class="counter"> <b>{{ recovered }}</b> </span></h2>
+                            <h3>Healed</h3>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- End counter -->
+                    <!-- Start counter -->
+                    <div class="bg-danger mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12">
+                        <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
+                          <div class="icon-o"><i class="lni-users"></i></div>
+                          <div class="fact-count">
+                            <h2><span class="counter"> <b>{{ deaths }}</b> </span></h2>
+                            <h3>Deaths</h3>
+                          </div>
+                        </div>
+                      </div>
+                        <div class="bg-secondary mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12">
+                        <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
+                          <div class="icon-o"><i class="lni-users"></i></div>
+                          <div class="fact-count">
+                            <h2><span class="counter"> <b>{{ active }}</b> </span></h2>
+                            <h3>Active</h3>
+                          </div>
+                        </div>
+                      </div>
+                  <div class="bg-warning mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12">
+                    <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
+                      <div class="icon-o"><i class="lni-users"></i></div>
+                      <div class="fact-count">
+                        <h2><span class="counter"> <b>{{ new }}</b> </span></h2>
+                        <h3>New cases today</h3>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-info mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12">
+                    <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
+                      <div class="icon-o"><i class="lni-users"></i></div>
+                      <div class="fact-count">
+                        <h2><span class="counter"> <b>{{ serioz }}</b> </span></h2>
+                        <h3>Critical</h3>
+                      </div>
+                    </div>
+                  </div>
+
+                   <div class="bg-info mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12">
+                    <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
+                      <div class="icon-o"><i class="lni-users"></i></div>
+                      <div class="fact-count">
+                        <h2><span class="counter"> <b>{{ tests }}</b> </span></h2>
+                        <h3>tests</h3>
+                      </div>
+                    </div>
+                  </div>
+                <!-- End counter -->
+
+              </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Counter Section End -->
+
+    </div>
+
+
+  {% endblock %}
