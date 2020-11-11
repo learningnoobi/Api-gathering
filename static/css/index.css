@@ -32,7 +32,13 @@ body{
     width:80%;
     margin: auto;
 }
-
+.weather{
+  display: flex;justify-content: center;width: 100%;
+}
+.weather-res{
+  padding: 40px; box-shadow:  5px 5px 10px #000508, 
+             -5px -5px 10px #02131e;position: relative;
+}
 .search-bar{
   padding: 50px;
   border-radius: 14px;
