@@ -28,8 +28,9 @@ def index(request):
         news_data = {
             'news': result['name'],
             'url': result['url'],
-            # 'image': result['image']['thumbnail']['contentUrl'],
             'description': result['description'],
+            'img': result['image']['thumbnail']['contentUrl'],
+            
  
         }
         bing.append(news_data)
