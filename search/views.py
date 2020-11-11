@@ -28,7 +28,7 @@ def index(request):
         news_data = {
             'news': result['name'],
             'url': result['url'],
-            'image': result['image']['thumbnail']['contentUrl'],
+            # 'image': result['image']['thumbnail']['contentUrl'],
             'description': result['description'],
  
         }
