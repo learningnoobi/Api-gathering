@@ -70,7 +70,7 @@ def youtube(request):
 
 
 def weather(request):
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=c12a48c9ac1ec37bedd3cc51b1af4e8b'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=271d1234d3f497eed5b1d80a07b3fcd1'
 
     err_msg = ''
     message = ''
