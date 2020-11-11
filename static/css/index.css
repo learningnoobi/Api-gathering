@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Flamenco&family=Montserrat&display=swap');
+*{
+  margin: 0;
+  padding:0;
+  scroll-behavior: smooth;
+}
 body{
   font-family: 'Montserrat', sans-serif;
   background: #010c13;
@@ -23,6 +28,10 @@ body{
     grid-template-columns: repeat(auto-fit, 220px);
     margin: auto;
 }
+.grid-news{
+    width:80%;
+    margin: auto;
+}
 
 .search-bar{
   padding: 50px;
@@ -43,15 +52,39 @@ body{
              -5px -5px 10px #02131e;
 padding: 20px;
 }
+.newsresults{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
 
-@media (min-width: 768px) {
+footer{
+  background-color: #0b1a20;
+}
+footer h5{
+  color: tomato;
+}
+footer a{
+  text-decoration: none;
+  color: snow;
+}
+footer a:hover{
+  color: tomato;
+  text-decoration: none;
+}
+
+
+/*--------------media---------------------*/
+@media (max-width: 768px) {
   .jumbotron {
-    padding-bottom: 6rem;
+    padding-bottom: 2rem;
     margin-top: 10px;
    
   }
 }
-
+.grid-news{
+  width: 95%;
+}
 .jumbotron p:last-child {
   margin-bottom: 0;
 }

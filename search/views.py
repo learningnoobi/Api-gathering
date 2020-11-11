@@ -8,8 +8,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.template import loader
 from django.http import HttpResponse
 from django.contrib import messages
-def index(request):
-    return render (request,'search/index.html')
+
+
 
 
 def youtube(request):
@@ -177,3 +177,34 @@ def corona(request):
    
 
     return render(request, 'search/corona.html', context)
+
+def index(request):
+    bing = []
+    url = "https://bing-news-search1.p.rapidapi.com/news"
+
+    querystring = {"safeSearch":"Off","textFormat":"Raw"}
+
+    headers = {
+        'x-bingapis-sdk': "true",
+        'x-rapidapi-key': "c84814a9d4msh0adba8fb76f6854p13b21ejsnef8f35136c16",
+        'x-rapidapi-host': "bing-news-search1.p.rapidapi.com"
+        }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    results=response.json()['value']
+    
+    # print(response)
+    for result in results:
+        news_data = {
+            'news': result['name'],
+            'url': result['url'],
+            'image': result['image']['thumbnail']['contentUrl'],
+            'description': result['description'],
+ 
+        }
+        bing.append(news_data)
+    context = {
+        'bing':bing
+     }
+
+    return render (request,'search/index.html',context)
