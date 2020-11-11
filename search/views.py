@@ -22,11 +22,12 @@ def index(request):
 
     response = requests.request("GET", url, headers=headers, params=querystring)
     results=response.json()['value']
-    
-    # print(results[0])
+
+
     for result in results:
+        
         news_data = {
-        'img': result['image']['thumbnail']['contentUrl'],
+           
             'news': result['name'],
             'url': result['url'],
             'description': result['description'],
@@ -38,6 +39,7 @@ def index(request):
         bing.append(news_data)
     
     context = {
+
         'bing':bing
      }
 

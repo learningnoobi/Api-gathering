@@ -59,9 +59,9 @@ body{
 padding: 20px;
 }
 .newsresults{
-  display: flex;
-  justify-content: space-around;
+  width: 80%;
   margin-bottom: 20px;
+  margin: auto;
 }
 
 footer{
@@ -87,6 +87,12 @@ footer a:hover{
     margin-top: 10px;
    
   }
+  .newsresults{
+  width: 90%;
+  margin-bottom: 20px;
+  margin: auto;
+}
+
 }
 .grid-news{
   width: 95%;
