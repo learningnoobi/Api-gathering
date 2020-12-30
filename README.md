@@ -1,7 +1,7 @@
 # Api-gathering
 collection of multiple API
 
-apigathering.herokuapp.com
+https://apigathering.herokuapp.com/
 
 ```
 Corona Track Api
